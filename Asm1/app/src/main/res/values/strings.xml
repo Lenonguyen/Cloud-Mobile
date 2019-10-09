@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Asm1</string>
+    <string name="app_title">Title changed</string>
+    <string name="title_activity_second">SecondActivity</string>
+</resources>
