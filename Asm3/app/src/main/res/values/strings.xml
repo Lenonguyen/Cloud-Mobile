@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Asm3</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="birthday">Birthday</string>
+    <string name="email">Email</string>
+    <string name="reset">Reset</string>
+    <string name="submit">Send</string>
+</resources>

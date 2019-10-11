@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Asm4-1</string>
+    <string name="getBtn">Get Date</string>
+    <string name="rmBtn">Clear</string>
+</resources>

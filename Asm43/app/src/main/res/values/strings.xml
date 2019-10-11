@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Asm4-3</string>
+    <string name="addBtn">+</string>
+    <string name="minBtn">-</string>
+    <string name="mulBtn">x</string>
+    <string name="divBtn">/</string>
+    <string name="modBtn">%</string>
+    <string name="result">Result</string>
+</resources>
