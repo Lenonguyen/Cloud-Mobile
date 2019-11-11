@@ -11,11 +11,22 @@ public class Contact {
     }
 
     public boolean Search (String term) {
-        if ((this.firstName.contains(term)) || (this.lastName.contains(term)) || (this.phoneNumber.contains(term))) {
+        if ((this.firstName.equals(term)) || (this.lastName.equals(term)) || (this.phoneNumber.equals(term))) {
             return true;
         } else return false;
     }
 
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
     @Override
     public String toString() {
         return "First Name: " + this.firstName + "\t Last Name: " + this.lastName + "\t Phone: " + this.phoneNumber + "\t Education: " + this.educationLevel + "\t Hobby: " + this.hobbies;

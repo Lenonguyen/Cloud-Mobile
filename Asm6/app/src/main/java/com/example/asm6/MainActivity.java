@@ -1,6 +1,8 @@
 package com.example.asm6;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.AutoCompleteTextView;
+
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,15 +21,23 @@ public class MainActivity extends AppCompatActivity {
     private EditText phone;
     private EditText edu;
     private EditText hobby;
-    private EditText searchField;
 
-    private TextView searchResult;
+    private AutoCompleteTextView searchFieldF;
+    private AutoCompleteTextView searchFieldL;
+    private AutoCompleteTextView searchFieldP;
+
+    //private TextView searchResult;
 
     Button submitBtn;
-    Button searchBtn;
+    /*Button searchBtnF;
+    Button searchBtnL;
+    Button searchBtnP;*/
 
-    Vector<Contact> phoneCatalog = new Vector<>();
-
+    Vector<Contact> phoneCatalog = new Vector<Contact>();
+    //String[] suggestions ;
+    ArrayList<String> suggestionsF = new ArrayList<String>();
+    ArrayList<String> suggestionsL = new ArrayList<String>();
+    ArrayList<String> suggestionsP = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +47,22 @@ public class MainActivity extends AppCompatActivity {
         phone = (EditText) findViewById(R.id.phone);
         edu = (EditText) findViewById(R.id.edu);
         hobby = (EditText) findViewById(R.id.hobby);
-        searchField = (EditText) findViewById(R.id.searchField);
+        searchFieldF = (AutoCompleteTextView) findViewById(R.id.searchFieldF);
+        searchFieldL = (AutoCompleteTextView) findViewById(R.id.searchFieldL);
+        searchFieldP = (AutoCompleteTextView) findViewById(R.id.searchFieldP);
 
         submitBtn = (Button) findViewById(R.id.submitBtn);
-        searchBtn = (Button) findViewById(R.id.searchBtn);
+        /*searchBtnF = (Button) findViewById(R.id.searchBtnF);
+        searchBtnL = (Button) findViewById(R.id.searchBtnL);
+        searchBtnP = (Button) findViewById(R.id.searchBtnP);*/
 
-        searchResult = (TextView) findViewById(R.id.searchResult);
+        //searchResult = (TextView) findViewById(R.id.searchResult);
 
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, suggestions);
+        //searchField.setAdapter(adapter);
+        searchFieldF.setThreshold(1);
+        searchFieldL.setThreshold(1);
+        searchFieldP.setThreshold(1);
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,21 +95,23 @@ public class MainActivity extends AppCompatActivity {
                             phone.getText().toString(),
                             edu.getText().toString(),
                             hobby.getText().toString());
-
+                    addToSuggestionFirstname(newContact);
+                    addToSuggestionLastname(newContact);
+                    addToSuggestionPhone(newContact);
                     phoneCatalog.add(newContact);
                     Toast.makeText(getBaseContext(), "Contact added", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-        searchBtn.setOnClickListener(new View.OnClickListener() {
+        /*searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (searchField.getText().length() == 0) {
-                    searchField.setBackgroundColor(Color.rgb(254, 150, 150));
+                if (searchFieldF.getText().length() == 0) {
+                    searchFieldF.setBackgroundColor(Color.rgb(254, 150, 150));
                 } else {
                     String searchString = "";
                     for (Contact e : phoneCatalog) {
-                        if (e.Search(searchField.getText().toString())) {
+                        if (e.Search(searchFieldF.getText().toString())) {
                             searchString += e.toString() + "\n";
                         }
                     }
@@ -95,6 +119,30 @@ public class MainActivity extends AppCompatActivity {
                         searchResult.setText("Not Found !!!");
                 }
             }
-        });
+        });*/
+    }
+    protected void addToSuggestionFirstname(Contact c) {
+        suggestionsF.add(c.getFirstName() + " "+ c.getLastName() + " " + c.getPhoneNumber());
+        //suggestions.add(c.getFirstName());
+        //suggestions.add(c.getLastName());
+        //suggestions.add(c.getPhoneNumber());
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, suggestionsF);
+        searchFieldF.setAdapter(adapter);
+    }
+    protected void addToSuggestionLastname(Contact c) {
+        suggestionsL.add(c.getLastName() + " "+ c.getFirstName() + " " + c.getPhoneNumber());
+        //suggestions.add(c.getFirstName());
+        //suggestions.add(c.getLastName());
+        //suggestions.add(c.getPhoneNumber());
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, suggestionsL);
+        searchFieldL.setAdapter(adapter1);
+    }
+    protected void addToSuggestionPhone(Contact c) {
+        suggestionsP.add(c.getPhoneNumber() + " "+ c.getFirstName() + " " + c.getLastName());
+        //suggestions.add(c.getFirstName());
+        //suggestions.add(c.getLastName());
+        //suggestions.add(c.getPhoneNumber());
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, suggestionsP);
+        searchFieldP.setAdapter(adapter2);
     }
 }
