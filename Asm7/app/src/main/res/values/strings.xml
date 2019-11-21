@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Assignment7</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="phone">Phone Number</string>
+    <string name="edu">Education</string>
+    <string name="hobby">Hobby</string>
+    <string name="submit">Submit</string>
+    <string name="search">Search</string>
+    <string name="searchField">Input first name to search</string>
+    <string name="file_save_fb">File saved successfully!</string>
+    <string name="save_fb">Data saved successfully!</string>
+    <string name="file_load_fb">File loaded successfully!</string>
+    <string name="shared_prefs_file_name">prefs</string>
+    <string name="tw_comment_txt">Comment</string>
+    <string name="file_not_found_excp">File Not Found!</string>
+    <string name="io_excp">Input Output Error !</string>
+    <string name="saveExBtn">Save to External Memory</string>
+    <string name="saveInBtn">Save to Internal Memory</string>
+    <string name="loadExBtn">Load from External Memory</string>
+    <string name="loadInBtn">Load from Internal Memory</string>
+    <string name="seekbarText">Adjust to change text size</string>
+    <string name="textcolorText">Text Color></string>
+    <string name="bgcolorText">Background Color></string>
+    <string name="saveUIbtn">Save UI Setting</string>
+    <string name="colorspinnerText">Choose Text Color</string>
+    <string name="bgcolorspinnerText">Choose Background Color</string>
+</resources>
