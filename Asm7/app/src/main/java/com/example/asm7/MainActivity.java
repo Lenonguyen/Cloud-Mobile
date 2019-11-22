@@ -113,8 +113,8 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
         phone = (EditText) findViewById(R.id.phone);
         edu = (EditText) findViewById(R.id.edu);
         hobby = (EditText) findViewById(R.id.hobby);
-        searchFieldF = (AutoCompleteTextView) findViewById(R.id.searchFieldF);
-       /* searchFieldL = (AutoCompleteTextView) findViewById(R.id.searchFieldL);
+        /*searchFieldF = (AutoCompleteTextView) findViewById(R.id.searchFieldF);
+        searchFieldL = (AutoCompleteTextView) findViewById(R.id.searchFieldL);
         searchFieldP = (AutoCompleteTextView) findViewById(R.id.searchFieldP);*/
         summaryTextView = (TextView) findViewById(R.id.summaryTextView);
 
@@ -131,8 +131,8 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
         loadExBtn.setOnClickListener(buttonLoadExternalOnClick);
         saveUIBtn.setOnClickListener(buttonSaveUIOnClick);
 
-        searchFieldF.setThreshold(1);
-/*        searchFieldL.setThreshold(1);
+/*        searchFieldF.setThreshold(1);
+        searchFieldL.setThreshold(1);
         searchFieldP.setThreshold(1);*/
 
         seekBar = (SeekBar) findViewById(R.id.seekbar);
@@ -206,8 +206,8 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
                             phone.getText().toString(),
                             edu.getText().toString(),
                             hobby.getText().toString());
-                    addToSuggestionFirstname(newContact);
-/*                    addToSuggestionLastname(newContact);
+/*                    addToSuggestionFirstname(newContact);
+                    addToSuggestionLastname(newContact);
                     addToSuggestionPhone(newContact);*/
                     phoneCatalog.add(newContact);
                     String summaryString ="";
@@ -222,12 +222,12 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
             }
         });
     }
-    protected void addToSuggestionFirstname(Contact c) {
+    /*protected void addToSuggestionFirstname(Contact c) {
         suggestionsF.add(c.getFirstName() + " "+ c.getLastName() + " " + c.getPhoneNumber());
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, suggestionsF);
         searchFieldF.setAdapter(adapter);
     }
-    /*protected void addToSuggestionLastname(Contact c) {
+    protected void addToSuggestionLastname(Contact c) {
         suggestionsL.add(c.getLastName() + " "+ c.getFirstName() + " " + c.getPhoneNumber());
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, suggestionsL);
         searchFieldL.setAdapter(adapter1);
@@ -237,11 +237,11 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
         ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, suggestionsP);
         searchFieldP.setAdapter(adapter2);
     }*/
-    private void updatingArrayAdapter(String returnData) {
+    /*private void updatingArrayAdapter(String returnData) {
         String[] dataSplit = returnData.split("\n");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, dataSplit );
         searchFieldF.setAdapter(adapter);
-    };
+    };*/
     private void loadUISettings() {
 
         SharedPreferences loadedSharedPrefs = getSharedPreferences(prefsFileName, MODE_PRIVATE);
@@ -320,7 +320,7 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
                     inputBuffer = new char[BLOCK_SIZE];
                 }
 //Here we set the text of the commentEditText to the one, which has been read
-                updatingArrayAdapter(fileContent);
+                //updatingArrayAdapter(fileContent);
                 summaryTextView.setText(fileContent);
                 Toast.makeText(getApplicationContext(), getString(R.string.file_load_fb), Toast.LENGTH_LONG).show();
             } catch (FileNotFoundException e) {
@@ -391,7 +391,7 @@ public class MainActivity extends AppCompatActivity implements OnItemSelectedLis
                 }
                 // Here we set the text of the commentEditText to the one,
                 // which has been read
-                updatingArrayAdapter(fileContent);
+                //updatingArrayAdapter(fileContent);
                 summaryTextView.setText(fileContent);
                 Toast.makeText(getApplicationContext(),
                         getString(R.string.file_load_fb), Toast.LENGTH_LONG)
