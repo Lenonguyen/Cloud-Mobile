@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Asm9b</string>
+    <string name="action_settings">Settings</string>
+    <string name="img_desc">Downloaded image</string>
+    <string name="tv_url_txt">Select Image URL</string>
+    <string name="btn_get_image_txt">Get Image</string>
+    <string name="btn_display_image_txt">Display Image</string>
+    <string name="btn_display_text_txt">Display Text</string>
+    <string name="search_btn">Search</string>
+    <string name="empty_fields_txt">The Field is empty</string>
+</resources>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Asm9</string>
+    <string name="action_settings">Settings</string>
+    <string name="img_desc">Downloaded image</string>
+    <string name="tv_url_txt">Select Image URL</string>
+    <string name="btn_get_image_txt">Get Image</string>
+    <string name="btn_display_image_txt">Display Image</string>
+    <string name="btn_display_text_txt">Display Text</string>
+    <string name="load_btn">Load And Save to Database</string>
+    <string name="loaddb_btn">Load from Database</string>
+    <string name="getdb_btn">Get all Websites available from Database</string>
+    <string name="clear_btn">Clear</string>
+    <string name="delete_btn">Delete all database</string>
+    <string name="empty_fields_txt">The Field is empty</string>
+    <string name="url_txt">The web with url: </string>
+    <string name="not_found_txt"> not found! </string>
+</resources>
